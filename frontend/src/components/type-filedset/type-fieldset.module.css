@@ -1,0 +1,26 @@
+.type-fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 52px;
+  color:  #383838;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+
+.type-fieldset__label {
+  margin-bottom: 16px;
+  font-family: "rubik", "arial", sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.type-fieldset__select {
+  width: 200px;
+}
+
+.type-fieldset__number-input {
+  display: block;
+  width: 100px;
+}

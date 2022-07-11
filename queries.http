@@ -1,0 +1,107 @@
+### Запрос всех предложений
+GET http://localhost:3000/offers
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyYzIzOWI2YTQ2MDI3MGUzZTIxMmM0YSIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzY2MzA1LCJleHAiOjE2NTM3NjcyMDV9.v0yn6T9NX8J4Y2_rnbpv3lhQ1zhH9J3ky3oqPXektzY
+Accept: application/json
+
+### Запрос одного предложения
+GET http://localhost:3000/offers/62c239b6a460270e3e212c4a
+Accept: application/json
+
+### Обновление данных предложения
+PATCH http://localhost:3000/offers/62c239b6a460270e3e212c4a
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+{
+  "title": "Объявление отредактировано",
+  "rating": 4.3,
+  "type": "62c239b6a460270e3e212c4a",
+  "goods": [
+    "62c239b6a460270e3e212c4a",
+    "62c239b6a460270e3e212c4a"
+  ]
+}
+
+### Добавление нового комментария
+POST http://localhost:3000/offers/62c239b6a460270e3e212c4a/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+{
+  "text": "Новый комментарий12312"
+}
+
+### Запрос комментариев к предложению
+GET http://localhost:3000/offers/62c239b6a460270e3e212c4a/comments
+Accept: application/json
+
+### Обновление комментария
+PATCH http://localhost:3000/offers/62c239b6a460270e3e212c4a/comments/6291343e47db59794a4f6e85
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+{
+  "rating": 5
+}
+
+### Удаление комментария
+DELETE http://localhost:3000/offers/62c239b6a460270e3e212c4a/comments/629137d93a1f9222053fcdc8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+### Добавление предложения в избранное
+POST http://localhost:3000/favorites
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+{
+  "offerId": "62743c1be73040cb770cb474"
+}
+
+### Запрос предложений из избранного
+GET http://localhost:3000/favorites
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Accept: application/json
+
+### Удаление предложения из избранного
+DELETE http://localhost:3000/favorites/62c239b6a460270e3e212c4a
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyNzQzYzFiZTczMDQwY2I3NzBjYjQ2NiIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzUxNDE5LCJleHAiOjE2NTM3NTIzMTl9.msE17OTSQ9yVmpNSYLp0J6USFSBTa9lJ20l-h8CgVT8
+Content-Type: application/json
+
+### Добавление нового пользователя
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "ivan@example.ru",
+  "name": "Ivan Nasekin",
+  "isPro": true,
+  "password": "654321"
+}
+
+### Авторизация пользователя
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "ivan@example.ru",
+  "password": "654321"
+}
+
+### Обновление токенов
+POST http://localhost:3000/users/refresh
+Content-Type: application/json
+
+{
+  "email": "ivan@example.ru",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyOTI0MmJkZDMwOWU1NmI3NWZjYjZkZSIsImVtYWlsIjoiaXZhbkBleGFtcGxlLnJ1IiwiaWF0IjoxNjUzNzY2MzA1LCJleHAiOjE2NTYzNTgzMDV9.8DWFw3_eZODllsLsSW3bLrpT4oyQij_YQNgZZAgmc4s"
+}
+
+### Отзыв токенов - логаут
+POST http://localhost:3000/users/logout
+Content-Type: application/json
+
+{
+  "email": "ivan@example.ru",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyOTI0MWJjZDMwOWU1NmI3NWZjYjZkNyIsImVtYWlsIjoibmFzZWtpbmlkQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzc1MjMzMSwiZXhwIjoxNjU2MzQ0MzMxfQ.ZhbUJTb22uXkFX2HlKtwTx6adEIa_2cMXO8dTMmWa4Y"
+}

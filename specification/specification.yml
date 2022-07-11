@@ -1,0 +1,453 @@
+openapi: 3.0.1
+info:
+  title: REST API сервер для проекта «Шесть городов».
+  description: |-
+    * Список ресурсов и маршрутов сервера «Шесть городов».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 1.0.0
+tags:
+  - name: offer
+    description: Действия с обновлениями.
+  - name: city
+    description: Действия с городами.
+  - name: good
+    description: Действия с удобствами.
+  - name: user
+    description: Действия с пользователями.
+  - name: building type
+    description: Действия с типами жилья.
+paths:
+  /offers:
+    post:
+      tags:
+        - offer
+      summary: Добавить новое объявление.
+      description: Добавляет новое объявление.
+      operationId: createOffer
+      requestBody:
+        description: Объект с новым объявлением
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOffer'
+        required: true
+      responses:
+        '201':
+          description: Новое объявление
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+        '400':
+          description: Ошибка тела запроса.
+          content: {}
+        '404':
+          description: Объявление не найдено.
+          content: {}
+  /offers/{offerId}:
+    get:
+      tags:
+        - offer
+      summary: Получить детальную информацию по объявлению.
+      description: Возвращает объявление с идентификатором `offerId`.
+      operationId: getOfferById
+      parameters:
+        - name: offerId
+          in: path
+          description: Уникальный идентификатор объявления
+          required: true
+          schema:
+            type: string
+            example: f17c1
+      responses:
+        '200':
+          description: Объект объявления
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+        '404':
+          description: Объявление не найдено
+          content: {}
+    put:
+      tags:
+        - offer
+      summary: Редактировать объявление
+      description: Обновляет объявление с идентификатором `offerId`.
+      operationId: updateOfferById
+      parameters:
+        - name: offerId
+          in: path
+          description: Уникальный идентификатор объявления
+          required: true
+          schema:
+            type: string
+            example: f17c1
+      requestBody:
+        description: Объект с изменённым объявлением
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOffer'
+        required: true
+      responses:
+        '200':
+          description: Объект объявления
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+        '404':
+          description: Объявление не найдено
+          content: {}
+    delete:
+      tags:
+        - offer
+      summary: Удалить объявление
+      description: Удаляет объявление с идентификатором `offerId`.
+      operationId: deleteOfferById
+      parameters:
+        - name: offerId
+          in: path
+          description: Уникальный идентификатор объявления
+          required: true
+          schema:
+            type: string
+            example: f17c1
+      responses:
+        '200':
+          description: Объявление удалено
+          content: {}
+        '404':
+          description: Объявление не найдено
+          content: {}
+  /cities:
+    get:
+      tags:
+        - city
+      summary: Получить список городов.
+      description: Возвращает массив городов. Каждый город описан в виде объекта.
+      operationId: getCities
+      responses:
+        '200':
+          description: Массив городов.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/City'
+    post:
+      tags:
+        - city
+      summary: Добавить новый город.
+      description: Добавление нового города.
+      operationId: createCity
+      requestBody:
+        description: Объект с новым городом.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCity'
+        required: true
+      responses:
+        '201':
+          description: Новый город.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/City'
+        '400':
+          description: Ошибка тела запроса.
+          content: {}
+  /goods:
+    get:
+      tags:
+        - good
+      summary: Получить список удобств.
+      description: Возвращает массив удобств. Каждое удобство описано в виде объекта.
+      operationId: getGoods
+      responses:
+        '200':
+          description: Массив удобств.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Good'
+    post:
+      tags:
+        - good
+      summary: Добавляет новое удобство.
+      description: Добавляет новое удобство.
+      operationId: createGood
+      requestBody:
+        description: Объект с именем удобства.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGood'
+        required: true
+      responses:
+        '201':
+          description: Новое удоство.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Good'
+        '400':
+          description: Ошибка тела запроса.
+          content: {}
+  /buildingtypes:
+    get:
+      tags:
+        - building type
+      summary: Получаем список типов жилья.
+      description: Возвращает массив типов жилья. Каждый тип жилья представлен в виде объекта.
+      operationId: getBuildingTypes
+      responses:
+        '200':
+          description: Список типов жилья.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BuildingType'
+    post:
+      tags:
+        - building type
+      summary: Создаем новый тип жилья.
+      description: Создаем новый тип жилья.
+      operationId: createBuildingType
+      requestBody:
+        description: Объект с именем типа жилья.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBuildingType'
+        required: true
+      responses:
+        '201':
+          description: Новый объект с именем типа жилья.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildingType'
+        '400':
+          description: Ошибка тела запроса.
+          content: {}
+  /users:
+    get:
+      tags:
+        - user
+      summary: Список пользователей.
+      description: Возвращает массив пользователей. Каждый пользователь описан как объект.
+      operationId: getUsers
+      responses:
+        '200':
+          description: Массив пользователей.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - user
+      summary: Создание нового пользователя.
+      description: Создание нового пользователя.
+      operationId: registerUser
+      requestBody:
+        description: Данные пользователя для регистрации.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUser'
+      responses:
+        '200':
+          description: Новый пользователь.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Ошибка тела запроса.
+          content: {}
+components:
+  schemas:
+    CreateOffer:
+      type: object
+      properties:
+        city:
+          $ref: '#/components/schemas/City'
+        previewImage:
+          type: string
+          example: https://{url}/static/offers/1.jpg
+        images:
+          type: array
+          items:
+            type: string
+            example: https://{url}/static/offers/1.jpg
+        title:
+          type: string
+          example: Studio apartment for rent
+        isPremium:
+          type: boolean
+          example: false
+        rating:
+          type: integer
+          format: int32
+          example: 4.5
+        type:
+          $ref: '#/components/schemas/BuildingType'
+        bedrooms:
+          type: integer
+          format: int32
+          example: 3
+        maxAdults:
+          type: integer
+          format: int32
+          example: 2
+        price:
+          type: integer
+          format: int32
+          example: 20500.34
+        goods:
+          type: array
+          items:
+            $ref: '#/components/schemas/Good'
+        host:
+          $ref: '#/components/schemas/User'
+        description:
+          type: string
+          example: The surrounding neighbourhood has good transport links including trams and buses. There is a gym, supermarket and police station all within a 5-10 minute walk. There is also a selection of surrounding restaurants.
+        location:
+          $ref: '#/components/schemas/Location'
+        createdDate:
+          type: string
+          example: 2021-12-12T21:55:28.147Z
+    Offer:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              example: f17c1
+            commentCount:
+              type: integer
+              format: int32
+              example: 134
+        - $ref: '#/components/schemas/CreateOffer'
+    CreateBuildingType:
+      type: object
+      properties:
+        name:
+          type: string
+          example: hotel
+    BuildingType:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+        - $ref: '#/components/schemas/CreateBuildingType'
+    CreateCity:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Cologne
+        latitude:
+          type: integer
+          format: int32
+          example: 34.874635
+        longitude:
+          type: integer
+          format: int32
+          example: 84.927371
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          example: f876r
+        name:
+          type: string
+          example: Cologne
+        location:
+          $ref: '#/components/schemas/Location'
+    CreateGood:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Towels
+    Good:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              example: g826Ewd
+        - $ref: '#/components/schemas/CreateGood'
+    Location:
+      type: object
+      properties:
+        latitude:
+          type: integer
+          format: int32
+          example: 34.874635
+        longitude:
+          type: integer
+          format: int32
+          example: 84.927371
+        zoom:
+          type: integer
+          format: int32
+          example: 10
+    CreateUser:
+      type: object
+      properties:
+        email:
+          type: string
+          example: antonio@example.ru
+        avatarUrl:
+          type: string
+          example: https://{url}/static/avatar/1.jpg
+        name:
+          type: string
+          example: Antonio
+        isPro:
+          type: boolean
+          example: false
+    User:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              example: r453iJH
+        - $ref: '#/components/schemas/CreateUser'
+    RegisterUser:
+      allOf:
+        - $ref: '#/components/schemas/User'
+        - type: object
+          properties:
+            password:
+              type: string
+              example: 123456
+    AuthorizationInfo:
+      allOf:
+        - $ref: '#/components/schemas/User'
+        - type: object
+          properties:
+            token:
+              type: string
+              example: T2xpdmVyLmNvbm5lckBnbWFpbC5jb20=

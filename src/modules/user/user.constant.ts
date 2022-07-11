@@ -1,0 +1,3 @@
+const JWT_ALGORITHM = 'HS256';
+
+export {JWT_ALGORITHM};

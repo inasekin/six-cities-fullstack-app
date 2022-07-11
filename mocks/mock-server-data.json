@@ -1,0 +1,131 @@
+{
+  "api": {
+    "titles": [
+      "3-bedroom apartment for rent",
+      "Bright room in 3-bedroom apartment",
+      "Whole 3 bedrooms apartment",
+      "Studio apartment for rent",
+      "Furnished 1-bedroom apartment for rent",
+      "Renovated 2-bedroom apartment for rent"
+    ],
+    "descriptions": [
+      "This 90 m², 2-bedroom apartment on Avenue de la Couronne, Ixelles, has beautiful wooden floors, a living area, and a modern kitchen. The property has been recently renovated and is equipped with central heating.",
+      "Apartment with 1 bedroom completely furnished, 40m² with caretaker and cellar for rent on Av. Winston Churchill. The property is located close to the Bois de La Cambre & the commercial center Uccle Bascule. The property includes basement and fireplace. The bedroom includes a double bed.",
+      "You will love the modern living room. It has polished hardwood floors, funky grey rugs, and a bold red sofa. There is even a beautiful painting and a unique sculpture, to add some extra flair.",
+      "Possibly. Do you want to live in a calm and peaceful apartment in the suburbs? This practical 1-bedroom space is in a residential area close to parks.",
+      "The surrounding neighbourhood has good transport links including trams and buses. There is a gym, supermarket and police station all within a 5-10 minute walk. There is also a selection of surrounding restaurants.",
+      "The apartment is located on Rue du Trône, in the wealthy neighbourhood of Ixelles, close to public transport, green spaces, supermarkets, shops and restaurants. Bus 95 stops a minute from the apartment and takes you to the Free University of Brussels in just 6 minutes. Brussels's City Centre is located only 30 minutes away on foot, or a short ride away using public transport. Brussel-Luxemburg train station, where you can catch Eurocity, local and intercity trains, is 8 minutes from the apartment."
+    ],
+    "cities": [
+      {
+        "name": "Paris",
+        "location": {
+          "latitude": 48.85661,
+          "longitude": 2.351499,
+          "zoom": 13
+        }
+      },
+      {
+        "name": "Cologne",
+        "location": {
+          "latitude": 50.938361,
+          "longitude": 6.959974,
+          "zoom": 13
+        }
+      },
+      {
+        "name": "Brussels",
+        "location": {
+          "latitude": 50.846557,
+          "longitude": 4.351697,
+          "zoom": 13
+        }
+      },
+      {
+        "name": "Amsterdam",
+        "location": {
+          "latitude": 52.370216,
+          "longitude": 4.895168,
+          "zoom": 13
+        }
+      },
+      {
+        "name": "Hamburg",
+        "location": {
+          "latitude": 53.550341,
+          "longitude": 10.000654,
+          "zoom": 13
+        }
+      },
+      {
+        "name": "Dusseldorf",
+        "location": {
+          "latitude": 51.225402,
+          "longitude": 6.776314,
+          "zoom": 13
+        }
+      }
+    ],
+    "images": [
+      "6.jpg",
+      "13.jpg",
+      "16.jpg",
+      "18.jpg",
+      "17.jpg",
+      "8.jpg",
+      "10.jpg",
+      "9.jpg",
+      "19.jpg",
+      "5.jpg",
+      "14.jpg",
+      "20.jpg",
+      "11.jpg",
+      "2.jpg"
+    ],
+    "buildings_type": [
+      "apartment",
+      "house",
+      "room",
+      "hotel"
+    ],
+    "goods": [
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
+    ],
+    "authors": [
+      {
+        "email": "angelina@example.ru",
+        "id": 25,
+        "name": "Angelina",
+        "isPro": true,
+        "avatarUrl": "img/avatar-angelina.jpg"
+      },
+      {
+        "email": "antonio@example.ru",
+        "id": 12,
+        "name": "Antonio",
+        "isPro": false,
+        "avatarUrl": "img/avatar-antonio.jpg"
+      },
+      {
+        "email": "siera@example.ru",
+        "id": 33,
+        "name": "Siera",
+        "isPro": true,
+        "avatarUrl": "img/avatar-siera.jpg"
+      },
+      {
+        "email": "gregor@example.ru",
+        "id": 85,
+        "name": "Gregor",
+        "isPro": true,
+        "avatarUrl": "img/avatar-gregor.jpg"
+      }
+    ]
+  }
+}
